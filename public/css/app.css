@@ -1,1 +1,70 @@
+@import url(https://fonts.googleapis.com/css?family=Nunito);
+body {
+  display: flex;
+  justify-content: center;
+  background-color: rgb(221, 225, 247);
+}
 
+table {
+  border: 1px solid #0000b3;
+  padding: 5px;
+  background-color: rgb(246, 245, 220);
+}
+
+td {
+  border: 1px solid #0000b3;
+  padding: 5px;
+}
+
+#inStockMessage {
+  color: red;
+}
+
+button {
+  background-color: #3434d2;
+  color: #fff;
+  height: 30px;
+  width: 120px;
+  border-radius: 5px;
+}
+
+button:disabled,
+button[disabled] {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#add-transaction-form {
+  border: 3px solid #0000b3;
+  border-radius: 5px;
+  padding: 2rem;
+}
+
+#navigation {
+  padding: 2rem;
+  background-color: #2222ed;
+  color: #fff;
+  border-radius: 5px;
+  display: flex;
+}
+
+.navigation-button {
+  padding: 1rem;
+  font-size: large;
+  width: 100%;
+  color: #fff;
+}
+
+.navigation-button:hover {
+  background-color: white;
+  color: #0000b3;
+  border-radius: 5px;
+  font-weight: bold;
+}

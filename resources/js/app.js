@@ -1,8 +1,11 @@
 import { createApp } from 'vue';
-import AddNewTask from './components/AddNewTask.vue';
+import TaskList from './components/TaskList.vue';
 import DeleteTask from './components/DeleteTask.vue';
+import AddTask from './components/AddTask.vue';
 
 const app = createApp({});
-app.component('add-new-task', AddNewTask);
+app.component('task-list', TaskList);
 app.component('delete-task', DeleteTask);
+app.component('add-task', AddTask);
+
 app.mount('#app');

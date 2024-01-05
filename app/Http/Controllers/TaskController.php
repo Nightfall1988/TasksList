@@ -11,4 +11,28 @@ class TaskController extends Controller
         $tasks = Task::all();
         return view('welcome', ['tasks' => $tasks]);
     }
+
+    public function addNewTask() {
+        return view('addtask', ['task' => null]);
+    }
+
+    public function saveTask(Request $request) {
+        $task = new Task();
+        $task->title = $request->title;
+        $task->description = $request->description;
+        $task->completed = false;
+        $task->save();
+        return redirect('/');
+    }
+
+    public function completeTask(string $taskId) {
+        $task = Task::find($taskId);
+        $task->completed = true;
+        $task->save();
+        return redirect('/');
+    }
+
+    public function editTask($task) {
+        return view('addtask', ['task' => $task]);
+    }
 }
