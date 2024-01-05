@@ -1,21 +1,18 @@
 <template>
     <div id="wrapper">
-        {{tasks }}
-
         <div id="task-table">
             <table>
                 <tr>
                     <td>Title</td>
-                    <td>Type</td>                
+                    <td>Description</td>                
                     <td>Completed</td>                
-                    <td>Total</td>
                     <td>Created At</td>
-                    <td>task Profile</td>
                 </tr>
                 <tr v-bind:key="i" v-for="(task,i) in tasks">
-                    <td>{{task.title}}</td>
-                    <td>{{task.completed}}</td>
-                    <td>{{task.created_at}}</td>
+                    <td>{{task.id}}</td>
+                    <td>{{task.Title}}</td>
+                    <td>{{task.Description}}</td>
+                    <td>{{task.Completed}}</td>
                     <td><a :href="/get-task/+ task.id">Profile</a></td>
                 </tr>
             </table>
@@ -44,6 +41,8 @@
     import axios from 'axios';
     
         export default {
+            props: ['tasks'], // Declare the 'tasks' prop here
+
             // data: function() {
             //     return {
             //         tasks: [],
