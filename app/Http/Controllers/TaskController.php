@@ -32,6 +32,10 @@ class TaskController extends Controller
         return redirect('/');
     }
 
+    public function deleteTask($taskId) {
+        Task::where('id',$taskId)->delete();
+    }
+
     public function editTask($task) {
         return view('addtask', ['task' => $task]);
     }

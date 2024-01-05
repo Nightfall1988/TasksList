@@ -18,3 +18,4 @@ Route::get('/', [TaskController::class, 'getAllTasks']);
 Route::get('/add-new-task', [TaskController::class, 'addNewTask']);
 Route::post('/add-new-task', [TaskController::class, 'saveTask']);
 Route::post('/complete-task/{id}', [TaskController::class, 'completeTask']);
+Route::post('/delete-task/{id}', [TaskController::class, 'deleteTask']);

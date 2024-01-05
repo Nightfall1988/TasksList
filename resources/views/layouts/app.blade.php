@@ -6,10 +6,8 @@
     <title>Your Laravel App</title>
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
-    <div id="app">
+<body class="ml-8 mr-8">
         @yield('content')
-    </div>
     <script src="{{ mix('js/app.js') }}"></script>
 </body>
 </html>
