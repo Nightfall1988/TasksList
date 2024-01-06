@@ -9,8 +9,8 @@
             </div>
             <br>
             <br>
-            <add-task :task=@json($task)>
-            </add-task>
+            <edit-task :task='@json($task)'>
+            </edit-task>
         </div>
     </div>
 @endsection

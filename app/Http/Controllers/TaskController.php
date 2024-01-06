@@ -36,7 +36,13 @@ class TaskController extends Controller
         Task::where('id',$taskId)->delete();
     }
 
-    public function editTask($task) {
-        return view('addtask', ['task' => $task]);
+    public function editTask($id) {
+        $task = Task::find(['id' => $id])->first();
+        return view('edittask', ['task' => $task]);
+    }
+
+    public function editSaveTask(Request $request) {
+        $task = Task::find(['id' => $request->taskId]);
+        return view('addtask', ['taskToEdit' => $task]);
     }
 }

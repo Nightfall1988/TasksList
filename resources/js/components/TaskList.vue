@@ -1,12 +1,16 @@
 <template>
     <div id="wrapper">
         <div id="task-table">
+            <br>
+                <button @click="confirmDelete">Delete selected</button>
+                <br>
+            <br>
             <table>
                 <tr>
                     <td></td>
                     <td>Title</td>
                     <td>Description</td>                
-                    <td>Completed</td>                
+                    <td>Status</td>                
                     <td>Created At</td>
                 </tr>
                 <tr v-bind:key="i" v-for="(task,i) in tasks">
@@ -23,12 +27,12 @@
                     </td>
                     <td>{{getFormattedDate(task.created_at)}}</td>
                     <td><a :href="/get-task/+ task.id">Profile</a></td>
-                    <td><button @click="editTask(i)">Edit</button></td>
+                    <td><a :href="/edit-new-task/ + task.id">Edit</a></td>
                     <td><button @click="completeTask(task.id)">Complete</button></td>
                 </tr>
             </table>
         </div>
-        <button @click="confirmDelete">Delete selected</button>
+
         <br>
     </div>
     </template>
@@ -62,7 +66,11 @@
     
             editTask(index) {
                 const taskToEdit = this.tasks[index];
-                console.log('Task to edit:', taskToEdit);
+                console.log(taskToEdit.id)
+                axios.get('/edit-new-task/' + taskToEdit.id, {})
+                .catch(function (error) {
+                    console.log(error);
+                });
             },
 
             completeTask(id) {
