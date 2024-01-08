@@ -17,7 +17,7 @@ class TaskController extends Controller
     }
 
     function getProfile($taskId) {
-        $task = Task::find($taskId)->first();
+        $task = Task::find(['id', $taskId])->first();
         return view('profile', ['task' => $task]);
     }
 
