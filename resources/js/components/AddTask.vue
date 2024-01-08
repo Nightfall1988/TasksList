@@ -10,6 +10,7 @@
                 <textarea rows = "20" cols = "50" id='description' name='description' type="text" v-model="description"/>
                 <br>
                 <button>Save task</button>
+                <p v-if="showWarning" style="color: red;" class="text-red-500">Title and description should not exceed 200 characters.</p>
             </form>
         </div>
     </div>
@@ -19,32 +20,38 @@
     import axios from 'axios';
 
     export default {
-        data: function() {
-            return {
-                title: '',
-                description: '',
+    data: function () {
+        return {
+            title: '',
+            description: '',
+            showWarning: false,
+        }
+    },
+    methods: {
+        submit: function (e) {
+            if (this.validateFields()) {
+                this.saveTransaction();
+            } else {
+                this.showWarning = true;
             }
         },
-        mounted() {
+
+        validateFields: function () {
+            return this.title.length <= 200 && this.description.length <= 200;
         },
 
-        methods: {
-            submit : function(e) {
-                this.saveTransaction()
-            },
-
-            async saveTransaction() {
-                axios.post('/add-new-task', {
-                    	title: this.title,
-                        description: this.description,
+        async saveTransaction() {
+            axios.post('/add-new-task', {
+                    title: this.title,
+                    description: this.description,
                 })
                 .catch(function (error) {
                     console.log(error);
                 });
-                window.location.href = '/'
-            },
-        }
-    }
+            window.location.href = '/';
+        },
+    },
+}
 </script>
 
 <style scoped>

@@ -54,12 +54,27 @@ class TaskController extends Controller
      * @return void
      */
     public function saveTask(Request $request) {
-        $task = new Task();
-        $task->title = $request->title;
-        $task->description = $request->description;
-        $task->completed = false;
-        $task->save();
-        return redirect('/');
+
+        try {
+            $request->validate([
+                'title' => 'required|max:200',
+                'description' => 'required|max:200',
+            ]);
+    
+            $task = new Task();
+            $task->title = $request->title;
+            $task->description = $request->description;
+            $task->completed = false;
+            $task->save();
+    
+            return redirect('/');
+        } catch (ValidationException $e) {
+            dd('glop glop');
+            return redirect()->back()->with('error', 'Task is too long, make sure title and description does not exceed 200 digits.');
+        } catch (\Exception $e) {
+            // Handle other exceptions, if needed
+            return redirect()->back()->with('error', 'An error occurred while saving the task.');
+        }
     }
 
     /**
