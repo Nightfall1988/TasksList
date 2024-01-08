@@ -9,7 +9,7 @@
 
 ## Instructions to setup
 
-To setup this project open a terminal window in MintosTestApp directory.
+To setup this project open a terminal window in TasksList directory.
 
 1. Enter commands to download all dependencies:
     - composer install
