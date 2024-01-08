@@ -82,7 +82,7 @@ class TaskController extends Controller
      * @return void
      */
     public function deleteTask(string $taskId) {
-        Task::where(['id', $taskId])->delete();
+        Task::where('id', $taskId)->delete();
     }
 
     /**
