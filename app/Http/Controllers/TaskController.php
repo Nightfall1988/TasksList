@@ -16,6 +16,12 @@ class TaskController extends Controller
         return response()->json($tasks);
     }
 
+    function getProfile($taskId) {
+        $task = Task::find($taskId)->first();
+        return view('profile', ['task' => $task]);
+    }
+
+
     public function addNewTask() {
         return view('addtask', ['task' => null]);
     }

@@ -132,11 +132,10 @@
             },
 
             getFormattedDate(date) {
-                return moment(date).format("DD/MM/YYYY HH:MM")
+                return moment(date).format("DD/MM/YYYY HH:mm")
             },
 
             getTasks(pageUrl) {
-                console.log('Fetching tasks from:', pageUrl);
                 axios.get(pageUrl)
                 .then(response => {
                     this.tasks = response.data.data;

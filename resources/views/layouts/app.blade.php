@@ -10,6 +10,8 @@
 </head>
 <body class="ml-8 mr-8">
         @yield('content')
+
+        
     <script src="{{ mix('js/app.js') }}"></script>
 </body>
 </html>

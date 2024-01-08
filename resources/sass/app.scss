@@ -14,7 +14,7 @@ body {
 }
 
 #wrapper {
-    width: 800px;
+    width: 920px;
 }
 
 #app {
@@ -64,6 +64,7 @@ form {
     border: 3px solid $dark-blue;
     border-radius: $border-radius;
     padding: 2rem;
+    width: 740px;
 }
 
 #navigation {
@@ -72,7 +73,7 @@ form {
     color: $text-color;
     border-radius: $border-radius;
     display: flex;
-    width: 300px;
+    width: 745px;
     justify-content: center;
 }
 

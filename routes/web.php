@@ -16,6 +16,7 @@ use App\Http\Controllers\TaskController;
 
 Route::get('/', [TaskController::class, 'getHome']);
 Route::get('/tasks', [TaskController::class, 'getTasks']);
+Route::get('/get-task/{id}', [TaskController::class, 'getProfile']);
 Route::get('/add-new-task', [TaskController::class, 'addNewTask']);
 Route::get('/paginate-task-table', [TaskController::class, 'getPaginatedTasks']);
 Route::post('/add-new-task', [TaskController::class, 'saveTask']);
