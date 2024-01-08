@@ -1,12 +1,12 @@
 <template>
     <div>
         <div id="add-transaction-form">
-            <form method='post' action="/edit-new-task" @submit.prevent="submit">
+            <form method='post' action="/edit-new-task/" @submit.prevent="submit">
                 <input id='id' name='id' type="text" v-model="task.id" hidden/>
                 <label for="title">Title:</label>
-                <input id='title' name='title' type="text" v-model="task.title"/>
+                <textarea rows = "20" cols = "50"  id='title' name='title' type="text" v-model="task.title"/>
                 <label for="description">Description:</label>
-                <input id='description' name='description' type="text" v-model="task.description" value="{{ task.description }}"/>
+                <textarea id='description' name='description' type="text" v-model="task.description" />
                 <br>
                 <button>Edit task</button>
             </form>
@@ -29,14 +29,14 @@
 
         methods: {
             submit : function(e) {
-                this.saveTransaction()
+                this.saveTask()
             },
 
-            async saveTransaction() {
-                axios.post('/edit-new-task', {
-                        id: this.id,
-                    	title: this.title,
-                        description: this.description,
+            async saveTask() {
+                axios.post('/edit-save-task', {
+                        id: this.task.id,
+                    	title: this.task.title,
+                        description: this.task.description,
                 })
                 .catch(function (error) {
                     console.log(error);
@@ -48,5 +48,4 @@
 </script>
 
 <style scoped>
-    /* Component-specific styles go here */
 </style>

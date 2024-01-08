@@ -82,3 +82,59 @@ form {
   border-radius: 5px;
   font-weight: bold;
 }
+
+#title {
+  height: 22px;
+  border-radius: 3px;
+}
+
+#description {
+  border-radius: 3px;
+}
+
+.pagination {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  justify-content: center;
+}
+
+.pagination li {
+  margin: 0 5px;
+  display: inline-block;
+}
+
+.pagination a, .pagination span {
+  display: inline-block;
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.pagination a:hover {
+  background-color: #ddd;
+}
+
+.pagination .active a {
+  background-color: #4CAF50;
+  color: white;
+  border: 1px solid #4CAF50;
+}
+
+.pagination .disabled {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* Style for Previous and Next links */
+.pagination .prev-next {
+  display: inline-flex;
+  align-items: center;
+  font-size: 18px;
+}
+
+.pagination .prev-next a, .pagination .prev-next span {
+  padding: 8px;
+}

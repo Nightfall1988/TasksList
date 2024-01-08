@@ -8,9 +8,10 @@
             <head-menu></head-menu>
         </div>
         <br>
+        
         <br>
 
-        <task-list :tasks='@json($tasks)'>
+        <task-list>
         </task-list>
     </div>
 @endsection

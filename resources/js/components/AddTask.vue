@@ -4,9 +4,10 @@
         <div id="add-transaction-form">
             <form method='post' action="/add-new-task" @submit.prevent="submit">
                 <label for="title">Title:</label>
-                <input id='title' name='title' type="text" v-model="title"/>
+                <textarea rows = "20" cols = "50" id='title' name='title' type="text" v-model="title"/>
+                <br>
                 <label for="description">Description:</label>
-                <input id='description' name='description' type="text" v-model="description"/>
+                <textarea rows = "20" cols = "50" id='description' name='description' type="text" v-model="description"/>
                 <br>
                 <button>Save task</button>
             </form>
@@ -47,5 +48,4 @@
 </script>
 
 <style scoped>
-    /* Component-specific styles go here */
 </style>

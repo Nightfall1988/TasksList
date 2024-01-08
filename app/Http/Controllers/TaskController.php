@@ -7,9 +7,13 @@ use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
-    public function getAllTasks() {
-        $tasks = Task::all();
-        return view('welcome', ['tasks' => $tasks]);
+    public function getHome() {
+        return view('welcome');
+    }
+
+    public function getTasks() {
+        $tasks = Task::paginate(10);
+        return response()->json($tasks);
     }
 
     public function addNewTask() {
@@ -42,7 +46,9 @@ class TaskController extends Controller
     }
 
     public function editSaveTask(Request $request) {
-        $task = Task::find(['id' => $request->taskId]);
-        return view('addtask', ['taskToEdit' => $task]);
+        $task = Task::find(['id' => $request->id])->first();
+        $task->title = $request->title;
+        $task->description = $request->description;
+        $task->save();
     }
 }
